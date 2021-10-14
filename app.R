@@ -1,3 +1,14 @@
+# Load packages ----
+library(shiny)
+library(maps)
+library(mapproj)
+
+# Load data ----
+counties <- readRDS("data/counties.rds")
+
+# Source helper functions -----
+source("helpers.R")
+
 # User interface ----
 ui <- fluidPage(
   titlePanel("censusVis"),
@@ -46,3 +57,6 @@ server <- function(input, output) {
     percent_map(data, color, legend, input$range[1], input$range[2])
   })
 }
+
+# Run app ----
+shinyApp(ui, server)
