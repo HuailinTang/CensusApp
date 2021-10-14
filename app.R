@@ -57,3 +57,6 @@ server <- function(input, output) {
     percent_map(data, color, legend, input$range[1], input$range[2])
   })
 }
+
+# Run app ----
+shinyApp(ui, server)
